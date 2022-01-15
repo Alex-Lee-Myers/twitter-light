@@ -5,21 +5,13 @@ import TweetList from './components/TweetList';
 function App() {
   //? useState variable
   const [name, setName] = useState('');
-  const message = "My car needs fixed. 😢";
-
-  // e = event handler. what do events do? they are used to handle user interactions and show the user feedback.
-
-  const sayHelloHandler = (e) => {
-    setName("Johnny")
-  };
+  const [message, setMessage] = useState('');
 
   return (
     <div>
       <h1>Twight</h1>
       <CreateTweet />
-      <TweetList name={name} message={message} />
-      <h1>Hello {name}</h1>
-      <button onClick={sayHelloHandler}>Say Hello</button>
+      <TweetList name={name} message={message}  />
   </div>
   );
 }
