@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { scryRenderedComponentsWithType } from 'react-dom/cjs/react-dom-test-utils.production.min';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateTweet = ({textInput, setTextInput, tweets, setTweets}) => {
 
@@ -16,7 +16,7 @@ const CreateTweet = ({textInput, setTextInput, tweets, setTweets}) => {
         //? add new tweet to the tweets array
         event.preventDefault();
         console.log(...tweets)
-        setTweets([...tweets, textInput]); // spread operator used because we want to add the new tweet to the existing tweets array
+        setTweets([...tweets, {message: textInput, id: uuidv4()}]); // spread operator used because we want to add the new tweet to the existing tweets array
         setTextInput('');
     };
 

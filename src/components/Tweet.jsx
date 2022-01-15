@@ -5,7 +5,7 @@ const Tweet = ({name, tweet, tweets, setTweets}) => {
 
     const deleteTweet = () => {
         console.log('Deleting tweet...');
-        setTweets(tweets.filter((t) => t !== tweet));
+        setTweets(tweets.filter((state) => state.id !== tweet.id));
     }
 
 
@@ -13,7 +13,7 @@ const Tweet = ({name, tweet, tweets, setTweets}) => {
     return (
         <div className="tweet">
             <h2>{name}</h2>
-            <p>{tweet}</p>
+            <p>{tweet.message}</p>
             <button onClick={deleteTweet}>Delete</button>
             <button>Like</button>
         </div>
