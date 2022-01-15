@@ -1,11 +1,20 @@
-import React from 'react';
+import {useState} from 'react';
 
-const Tweet = ({name, message}) => {
+const Tweet = ({name, tweet, tweets, setTweets}) => {
+    // useState Variables
+
+    const deleteTweet = () => {
+        console.log('Deleting tweet...');
+        setTweets(tweets.filter((t) => t !== tweet));
+    }
+
+
+
     return (
         <div className="tweet">
             <h2>{name}</h2>
-            <h2>{message}</h2>
-            <button>Delete</button>
+            <p>{tweet}</p>
+            <button onClick={deleteTweet}>Delete</button>
             <button>Like</button>
         </div>
     );

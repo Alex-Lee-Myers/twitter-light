@@ -1,8 +1,8 @@
 import {useState} from 'react';
+import { scryRenderedComponentsWithType } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
-const CreateTweet = () => {
-    //? useState variables
-    const [textInput, setTextInput] = useState('');
+const CreateTweet = ({textInput, setTextInput, tweets, setTweets}) => {
+
 
     //? Functions
     // function to get users input
@@ -12,8 +12,16 @@ const CreateTweet = () => {
         setTextInput(event.target.value);
     };
 
+    const submitTweetHandler = (event) => {
+        //? add new tweet to the tweets array
+        event.preventDefault();
+        console.log(...tweets)
+        setTweets([...tweets, textInput]); // spread operator used because we want to add the new tweet to the existing tweets array
+        setTextInput('');
+    };
+
     return (
-        <form>
+        <form onSubmit={submitTweetHandler}>
             <textarea 
                 value={textInput} 
                 onChange={userInputHandler} 

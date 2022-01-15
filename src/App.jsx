@@ -4,14 +4,16 @@ import TweetList from './components/TweetList';
 
 function App() {
   //? useState variable
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState('Alex');
+  const [tweet, setTweet] = useState('');
+  const [textInput, setTextInput] = useState('');
+  const [tweets, setTweets] = useState([]);
 
   return (
     <div>
       <h1>Twight</h1>
-      <CreateTweet />
-      <TweetList name={name} message={message}  />
+      <CreateTweet textInput={textInput} setTextInput={setTextInput} tweets={tweets} setTweets={setTweets} />
+      <TweetList name={name} tweets={tweets} setTweets={setTweets}  />
   </div>
   );
 }
